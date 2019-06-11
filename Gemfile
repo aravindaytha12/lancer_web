@@ -36,8 +36,19 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
+gem 'omniauth-google-oauth2'#, '~> 0.7.0'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+
+gem 'simple_form', '~> 4.1'
+gem 'owlcarousel-rails', '~> 2.2', '>= 2.2.3.5'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'cocoon', '~> 1.2', '>= 1.2.12'
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem 'country_select', '~> 4.0'
+gem 'language_list', '~> 1.2', '>= 1.2.1'
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

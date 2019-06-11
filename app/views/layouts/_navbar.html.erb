@@ -21,8 +21,8 @@
           <li class="nav-item"><%= link_to'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
         <% else %>
           <li class="nav-item"><%= link_to 'Become a Seller', new_onboarding_path, class: "nav-link",'data-toggle' =>"modal", 'data-target' => "#loginModal" %></li>
-          <li class="nav-item"><%= link_to'Join', new_user_registration_path, class: "nav-link",'data-toggle' =>"modal", 'data-target' => "#signupModal" %></li>
           <li class="nav-item"><%= link_to'Sign In', new_user_session_path, class: "nav-link", 'data-toggle' =>"modal", 'data-target' => "#loginModal" %></li>
+          <li class="nav-item"><%= link_to'Join', new_user_registration_path, class: "nav-link",'data-toggle' =>"modal", 'data-target' => "#signupModal" %></li>
         <% end %>
       </ul>  
     </div> 

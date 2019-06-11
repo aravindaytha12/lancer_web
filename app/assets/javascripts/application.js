@@ -16,6 +16,10 @@
 //= require turbolinks
 //= require bootstrap
 //= require activestorage
+//= require owl.carousel
+//= require jquery.raty.js
+//= require cocoon
+//= require rangeslider.js
 //= require_tree .
 
 

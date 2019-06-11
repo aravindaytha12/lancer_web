@@ -1,0 +1,31 @@
+<div class="show-container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-4">
+      <%= render 'shared/seller-profile' %>
+    </div>
+    <div class="col-sm-12 col-lg-8">
+      <div class="border border-light bg-light">
+        <p class="h3 text-center p-3">My Services</p>
+      </div>
+
+        <% if @services.present? %>
+          <div class="row">
+            <%= render partial: 'shared/services-row', locals: {services: @services} %>
+          </div>
+        <% else %>
+          <div class="text-center py-5">
+            <p class="h4 text-secondary py-3">You don't have any service yet, Let's Create One Now</p>
+            <%= link_to 'Create Service', new_service_path, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+
+      <div class="border border-light bg-light">
+        <p class="h3 text-center p-3">My Favorites</p>
+      </div>
+      <div class="row">
+        <%= render partial: 'shared/services-row', locals: {services: @favorited_services} %>
+      </div>
+    </div>
+  </div>
+</div>
+
