@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    find_user
+    set_user
     @services = @seller.services
     @favorited_services = @seller.favorited_services
   end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :avatar, :description, :email, :country, :language)
   end
 
-  def find_user
+  def set_user
     @seller = User.find(params[:id])
   end
 
