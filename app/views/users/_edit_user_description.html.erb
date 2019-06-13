@@ -1,10 +1,44 @@
-Some Text
-<%= link_to "", :title => "Edit", :onclick => "editUserDescription()" do %>
-	<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-<%end%>
+<div>	
+	<% if @seller.present? && @seller.name.present? %>
+		<%= @seller.name %>
+	<% else %>
+		Edit your Profile
+	<% end %>
+	<%= link_to "", :title => "Edit", :onclick => "editUserDescription('true'); return false;" do %>
+		<i class="fa fa-pencil icn-edit" aria-hidden="true"></i>
+	<% end %>
+
+	<div id="edit_form" style="display:none;">
+		<%= form_for @seller, url: onboarding_path(@seller.id) do |f| %>
+			<%= f.file_field :avatar, :size=> 6*6 %>
+			<%= f.text_field :description %><br>
+			<%= f.submit "Update", :class => "btn btn-outline-success" %>&nbsp;<%= link_to "Cancel", "#", :onclick => "editUserDescription('false'); return false;", :class => "btn btn-outline-success" %>
+		<% end %>
+	</div>
+</div>
 
 <script type="text/javascript">
-	function editUserDescription(){
-		alert("hi hello");
+	function editUserDescription(is_show_form){
+		if(is_show_form=='true'){
+			$("#edit_form").show();
+		}else{
+			$("#edit_form").hide();
+		}
 	} 
 </script>
+
+<!-- <style type="text/css">
+	.btn-lrg-standard {
+    background-color: #1dbf73;
+    font: 700 16px/16px "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #fff;
+    border: 1px solid transparent;
+    padding: 15px 35px;
+    margin: 0;
+    display: inline-block;
+    border-radius: 3px;
+    box-sizing: border-box;
+    -webkit-transition: color .2s,background-color .2s,box-shadow .2s,border .2s;
+    transition: color .2s,background-color .2s,box-shadow .2s,border .2s;
+}
+</style> -->

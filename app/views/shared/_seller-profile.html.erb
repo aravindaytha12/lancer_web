@@ -3,11 +3,11 @@
     <%# ToDo "2019-06-12", whether seller or buyer, this should work, user - can be sellere/buyer  %>
     <% if @seller.avatar.present? %>
       <%= image_tag @seller.avatar_url(:medium), class: 'img-fluid rounded-circle pt-2', alt: "Upload Photo" %>
-    <% else %>
-      <%= image_tag "/small_Aravind_Passport_Size_Pic.jpg", size: '150x150', class: 'img-fluid rounded-circle pt-2', alt: "Upload Photo" %>
     <% end %>
-    <%= render partial: "edit_user_description" %>
-    <p class="h3 bold py-3"><%= @seller.name %></p>
+    
+    <p class="h3 bold py-3">
+      <%= render partial: "edit_user_description" %>
+    </p>
     <div class="mb-3" id="all-stars-<%= @seller.id %>"></div>
     <button class="btn btn-outline-success">Contact Me</button>
     <hr>
