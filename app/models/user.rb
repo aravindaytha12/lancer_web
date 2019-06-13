@@ -41,13 +41,13 @@ class User < ApplicationRecord
   
   validates :email, uniqueness: true, presence: true
   
-  def check_avatar
-    if self.avatar.blank?
-      self.avatar = "https://via.placeholder.com/150"
-    else
-      avatar_url
-    end
-  end
+  # def check_avatar
+  #   if self.avatar.blank?
+  #     self.avatar = "https://via.placeholder.com/150"
+  #   else
+  #     avatar_url
+  #   end
+  # end
 
   def seller?
     self[:language].present? && self[:name].present? && self[:country].present? && self[:description].present?

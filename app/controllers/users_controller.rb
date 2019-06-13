@@ -18,7 +18,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    set_user
+    # set_user
+    @seller = current_user
     @services = @seller.services
     @favorited_services = @seller.favorited_services
   end
@@ -28,9 +29,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :avatar, :description, :email, :country, :language)
   end
 
-  def set_user
-    @seller = User.find(params[:id])
-  end
+#   def set_user
+#     @seller = User.find(params[:id])
+#   end
 
   def redirect_user_sign_in
     if !user_signed_in?

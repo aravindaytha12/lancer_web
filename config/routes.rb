@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:new, :create, :update], as: "onboarding", path: "seller_onboarding"
-  resources :users, only: [:show], as: "profile", path: "profile"
+  # resources :users, only: [:show], as: "profile", path: "profile"
+  get '/profile/:name/:id', :to => 'users#show'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,6 +1,7 @@
 <div class="show-container">
   <div class="row">
     <div class="col-sm-12 col-lg-4">
+      <%# ToDo "2019-06-12", commonly used for profile, gig, so named as seller-profile %>
       <%= render 'shared/seller-profile' %>
     </div>
     <div class="col-sm-12 col-lg-8">
@@ -15,7 +16,7 @@
         <% else %>
           <div class="text-center py-5">
             <p class="h4 text-secondary py-3">You don't have any service yet, Let's Create One Now</p>
-            <%= link_to 'Create Service', new_service_path, class: 'btn btn-primary' %>
+            <%= link_to 'Create a New Gig', new_service_path, class: 'btn btn-primary' %>
           </div>
         <% end %>
 
