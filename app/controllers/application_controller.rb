@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
   private
   def set_global_search_variable
-binding.pry
     @q = Service.ransack(params[:q])
   end
 

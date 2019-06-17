@@ -10,6 +10,7 @@
 #
 
 class Category < ApplicationRecord
+  has_many :sub_categories
   has_many :services
 
   CAT_LIST = ["Graphic & Design", "Digital Marketing", "Writing & Translation", "Video & Animation", "Music & Audio", "Programming & Tech", "Business", "Lifestyle"]

@@ -24,6 +24,7 @@ class Service < ApplicationRecord
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   validates :title, :category_id, :description, presence: true
   validates :description, length: {minimum: 50, maximum: 1000}
+  has_many :attributes, through: :sub_categories
 
   def self.search(keyword)
     where('description LIKE ? OR title LIKE ?', keyword, keyword).order(created_at: :desc)
