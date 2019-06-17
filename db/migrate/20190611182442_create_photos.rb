@@ -1,9 +1,8 @@
 class CreatePhotos < ActiveRecord::Migration[5.2]
   def change
     create_table :photos do |t|
-    	t.integer :imageable_id
-      t.string :imageable_type
       t.text :description
+      t.references :service, references: :services, index: true
       t.timestamps
     end
   end

@@ -3,8 +3,10 @@ class CreateReviews < ActiveRecord::Migration[5.2]
     create_table :reviews do |t|
     	t.integer :star
       t.text :comment
-      t.references :user, references: :users
-      t.references :service, references: :services
+      t.string :type
+      t.integer :buyer_id
+      t.integer :seller_id
+      t.references :package, references: :packages, index: true
 
       t.timestamps
     end
