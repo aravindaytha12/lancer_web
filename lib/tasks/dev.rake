@@ -22,7 +22,7 @@ namespace :dev do
 
   task fake_category: :environment do
     Category.destroy_all
-    CAT_LIST = ["Graphic & Design", "Digital Marketing", "Music & Audio", "Programming & Tech", "Fun & Lifestyle", "Writing & Translation"]
+    CAT_LIST = ["Graphic & Design", "Digital Marketing", "Writing & Translation", "Video & Animation", "Music & Audio", "Programming & Tech", "Business", "Lifestyle"]
     CAT_LIST.each do |cat|
       Category.create!(title: cat)
     end

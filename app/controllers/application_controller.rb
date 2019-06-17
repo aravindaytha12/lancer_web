@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
 
   private
   def set_global_search_variable
-    # @q = Service.ransack(params[:q])
+binding.pry
+    @q = Service.ransack(params[:q])
   end
 
   def get_category_list
