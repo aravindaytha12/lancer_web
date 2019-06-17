@@ -28,11 +28,19 @@
           <div class="actions">
             <%= f.submit "Log in", class: "btn btn-info btn-block" %>
           </div>
+          <br/>
+          <div class="actions">
+            <%= link_to "Continue with Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-info btn-block" %>
+          </div>
+          <br/>
+          <div class="actions">
+            <%= link_to "Continue with Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-info btn-block" %>
+          </div>
         <% end %>
       </div>
-      <div class="modal-footer">
-        <%= link_to "Sign in with Github", '#', class: "btn btn-secondary btn-block" %>
-      </div>
+      <!-- <div class="modal-footer">
+        <%#= link_to "Sign in with Github", '#', class: "btn btn-secondary btn-block" %>
+      </div> -->
     </div>
   </div>
 </div>

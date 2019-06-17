@@ -23,7 +23,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -72,20 +72,39 @@ class User < ApplicationRecord
     end
   end
 
-
-  def self.from_omniauth(access_token)
-    data = access_token.info
-    user = User.where(email: data['email']).first
-
-    # Uncomment the section below if you want users to be created if they don't exist
-    # unless user
-    #     user = User.create(name: data['name'],
-    #        email: data['email'],
-    #        password: Devise.friendly_token[0,20]
-    #     )
-    # end
+  def self.from_omniauth(auth)
+    user = User.where(email: auth.info.email).first
+    user ||= User.create!(provider: auth.provider, name: auth.info.name, email: auth.info.email, password: Devise.friendly_token[0,20])
     user
   end
+
+  # def create_with_omniauth(auth)
+    
+  # end
+
+  # def from_omniauth_backup
+        # find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)
+    # if false
+      # user = User.where(provider: auth.provider, email: auth.info.email).first
+      # where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      #   user.provider = auth.provider
+      #   user.uid = auth.uid
+      #   user.name = auth.info.name
+      #   user.email = auth.info.email
+      #   user.password = Devise.friendly_token[0,20]
+      #   # user.oauth_token = auth.credentials.token
+      #   # user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      #   user.save!
+      # end
+    # end
+
+    # if false
+    #   data = access_token.info
+    #   user = User.where(email: data['email']).first
+    #   user ||= User.create(name: data['name'], email: data['email'], password: Devise.friendly_token[0,20])
+    #   user
+    # end
+  # end
 
 end
 
